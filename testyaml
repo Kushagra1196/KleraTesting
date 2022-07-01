@@ -1,0 +1,228 @@
+---
+organization: TSD
+group: AMP
+
+# Product definition
+product:
+  # Product attributes that apply to the entire product are defined here, else overridden at the service/component level is unique
+  name: SPS
+  # Collection of tags useful for filtering queries for this product data
+  # Tags can identify dynamic product attributes such as SAAS/ONPREM or FEDRAMP/RESTRICTIVE ENV REQUIRED, etc.
+  tags: [ "SAAS", "KOERID" ]
+
+  tools:
+    jira:
+    - project_url: https://CSG-jira.testware.net/projects/TTSD
+       
+    cd:
+      environment-urls:
+      - dev: https://github.gwd.testware.net/dockcpdev/CSGicdsaas-dev
+      - prod: https://github.gwd.testware.net/dockcp/CSGicdsaas-prod
+
+    artifactory:
+      repository-urls:
+      - helm: https://test-sample.index.in/factoryTSD-sps-helm-release-local
+      - snapshot: https://test-sample.index.in/factoryTSD-sps-generic-release-local
+      - docker: https://test-sample.index.in/factoryTSD-sps-docker-release-local
+      - release: https://test-sample.index.in/factoryTSD-sps-maven-release-local
+
+    # Tool keys reserved for future use / need property definitions
+    clarity:
+    rally:
+    gcr:
+    ci:
+    confluence:
+    slack:
+    gchat:
+    laceworks:
+
+  components:
+  - name: Global Component
+    team: null
+    # Collection of tags useful for filtering queries for this component data
+    # Tags can identify dynamic product attributes such as SAAS/ONPREM or FEDRAMP/RESTRICTIVE ENV REQUIRED, etc.
+    tags: [ "SAAS", "ONPREM" ]
+    # Git configuration for this component
+    git:
+      repo: https://github.gwd.testware.net/CSG/icds-global-catalog
+      branch:
+      - master:
+        jenkins-build-job: https://xyz.com/cicd-global-catalog-component
+        sonarqube: https://qubeware.testware.net/dashboard?id=icds-global-catalog
+        blackduck: https://testware-sw.app.blackduck.com/api/projects/e593a0f7-d7f1-4a02-8352-b1903e5ff005
+        coverity: https://cov-ren-02.ren.testware.net:1234/reports.htm#v29876/p10408
+      - dev:
+        jenkins-build-job: https://xyz.com/cicd-global-catalog-component
+        sonarqube: https://qubeware.testware.net/dashboard?id=icds-global-catalog
+        blackduck: https://testware-sw.app.blackduck.com/api/projects/e593a0f7-d7f1-4a02-8352-b1903e5ff005
+        coverity: https://cov-ren-02.ren.testware.net:1234/reports.htm#v29876/p10408
+
+  - name: User Service
+    team: EEP
+    git:
+      repo: https://github.gwd.testware.net/CSG/icds-user-directory
+      branch:
+      - master:
+        jenkins-build-job: https://xyz.com/abc
+        sonarqube: https://qubeware.testware.net/dashboard?id=icds-user-directory
+        blackduck: https://testware-sw.app.blackduck.com/api/projects/f02db046-593e-4712-8f8d-94c439698813
+        coverity: https://cov-ren-02.ren.testware.net:1234/reports.htm#v29876/p10378
+
+  - name: Authorization Service
+    team: AOP
+    git:
+      repo: https://github.gwd.testware.net/CSG/icds-auth-management
+      branch:
+          - master:
+            - jenkins-build-job: https://xyz.com/abc1
+            - sonarqube: https://qubeware-dev.testware.net/dashboard?id=icds
+            - blackduck: https://testware-sw.app.blackduck.com/api/projects/ihujhvhu8
+            - coverity: https://cov-ren-02.ren.testware.net:1234/report.htm#v29/p104
+
+  - name: Command Control (MNC)
+    team: MNC
+    git:
+      repo: https://github.gwd.testware.net/CSG/icds-cn
+      branch:
+        - master:
+          jenkins-build-job: https://xyz.com/cni
+          sonarqube: null
+          blackduck: null
+          coverity: null
+  - name: K3
+    team: K3
+    git:
+      repo: https://github.gwd.testware.net/CSG/isref-r3
+      branch:
+        - master:
+          - jenkins-build-job: https://xyz.com/cicwer-icds-r2
+          - sonarqube: https://qubeware.testware.net/dashboard?id=icd
+          - blackduck: https://testware-sw.app.blackduck.com/api/projects/644819d0
+          - coverity: https://cov-ren-02.ren.testware.net:1234/reports.htm#v876/p1
+
+  - name: Token Service
+    team: Identity
+    git:
+      repo: https://github.gwd.testware.net/CSG/icds
+      branch:
+        - master:
+          - jenkins-build-job: https://xyz.com/cjb
+          - sonarqube: https://qubeware.testware.net/dashboard?id=jhhb
+          - blackduck: https://testware-sw.app.blackduck.com/api/projects/38c2607c
+          - coverity: https://cov-ren-02.ren.testware.net:1234/reports.htm#v76/p1
+
+  - name: User 
+    team: null
+    git:
+      repo: https://github.gwd.testware.net/CSG/icds
+      branch:
+        - master:
+          - jenkins-build-job: https://xyz.com/ciuhd
+          - sonarqube: https://qubeware.testware.net/dashboard?id=isdfds
+          - blackduck: https://testware-sw.app.blackduck.com/api/projects/6435ea7
+          - coverity: https://cov-ren-02.ren.testware.net:1234/reports.htm#v26/p10
+
+  - name: Event Desk
+    team: null
+    git:
+      repo: https://github.gwd.testware.net/CSG/isdf
+      branch:
+        - master:
+          - jenkins-build-job: https://xyz.com/cidsf
+          - sonarqube: https://qubeware.testware.net/dashboard?id=fdsfds
+          - blackduck: https://testware-sw.app.blackduck.com/api/projects/230074e2fdsf
+          - coverity: https://cov-ren-02.ren.testware.net:1234/reports.htm#v23r6/psdf
+
+  - name: User Face
+    team: kfd
+    git:
+      repo: https://github.gwd.testware.net/CSG/idsf
+      branch:
+        - master:
+          - jenkins-build-job: https://xyz.com/sdf
+          - sonarqube: https://qubeware.testware.net/dashboard?id=sdf
+          - blackduck: null
+          - coverity: null
+
+  - name: IDP Hac
+    team: kfd
+    git:
+      repo: https://github.gwd.testware.net/CSG/isdf
+      branch:
+        - master:
+          - jenkins-build-job: https://xyz.com/cfsd
+          - sonarqube: https://qubeware.testware.net/dashboard?id=dfsdf
+          - blackduck: https://testware-sw.app.blackduck.com/api/projects/6f29ff2324234rfd
+          - coverity: https://cov-ren-02.ren.testware.net:1234/reports.htm#v2/p1
+
+  - name: User Face 
+    team: kfd
+    git:
+      repo: https://github.gwd.testware.net/CSG/ifsdf
+      branch:
+          - master:
+            - jenkins-build-job: https://xyz.com/csdf
+            - sonarqube: https://qubeware.testware.net/dashboard?id=isdfs
+            - blackduck: null
+            - coverity: null
+
+  # Runtime cost bases
+  gke:
+    environments:
+    - name: Environment name (Dev)
+      namespaces:
+      - sedimentdata-js-dfd
+      - sedimentdata-js-desdf2
+      - sedimentclass-dev-sdf
+      - sedimentclass-dev-cpsdf
+      - sedimentclass-dev-generadsf
+      - sedimentclass-dev-generator-gsd
+      - sedimentclass-dev-generator-dsf
+      - sedimentclass-dev-def
+      - sedimentclass-dev-d
+      - sedimentclass-dev-sd
+      - sedimentclass-dev-dfff
+      - sedimentclass-fd
+      - sedimentclass-sddd-generator
+      - sedimentclass-fdsfds-sdf
+      - sedimentclass-icd-schema
+      - sedimentclass-jenkins
+      - sedimentclass-jenkins
+      - sedimentclass-load
+      - sedimentclass-spo
+      - sedimentclass-dfs
+      - sedimentclass
+    - name: Verify
+      namespaces:
+      - sedimentclass-verify-generator3ed
+      - sedimentclass-verify-generatorfd
+      - sedimentclass-verify-generatordf
+      - sedimentclass-verify-generator-identdfsdfity
+      - sedimentclass-verify-generator-udfdsfs
+      - sedimentclass-verify-pwerersr
+      - sedimentclass-verify1-csdafdsp1
+      - sedimentclass-verify1-spewre1
+      - sedimentclass-verify1-spewfweoc
+      - sedimentclass-verify2-casdp1
+      - sedimentclass-verify2-spf1
+      - sedimentclass-spoc-veriferey-generator
+      - sedimentclass-spoctemp-verwereify-generator
+    - name: Prod
+      namespaces:
+      - sedimentclass-aioesdsdps
+      - sedimentclass-were
+      - sedimentclass-sdf
+      - sedimentclass-portal-prodsdfgenerator
+      - sedimentclass-prod-generator
+      - sedimentclass-prod-generator-sdf
+      - sedimentclass-prod-generator-gcdfwe
+      - sedimentclass-prod-generator-sefesfa
+      - sedimentclass-prod-generator-udfefs
+      - sedimentclass-prod-psrfefs
+      - sedimentclass-prod1-cp1asdfe
+      - sedimentclass-prod1-sp1ffwe
+      - sedimentclass-prod1-fde
+      - sedimentclass-prod2-sdf
+      - sedimentclass-prod2-svvds
+      - sedimentclass-wefd
+      - sedimentclass-spoc-prod-generator
