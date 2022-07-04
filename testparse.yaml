@@ -47,19 +47,19 @@ product:
         # Collection of tags useful for filtering queries for this component data
         # Tags can identify dynamic product attributes such as SAAS/ONPREM or FEDRAMP/RESTRICTIVE ENV REQUIRED, etc.
         # These tags will overwrite values from TAGS above in product
-        tags: [ "SAAS", "ONPREM", "PRODUCT_SPECIFIC1", "PRODUCT_SPECIFIC1" ]
-        tool-integrations:
-        - jenkins-build-job: https://cicd-jenkins.lvn.broadcom.net/job/cicd-global-catalog-component
-        - sonarqube: https://sonarqube.broadcom.net/dashboard?id=icds-global-catalog
-        - blackduck: https://broadcom-sw.app.blackduck.com/api/projects/e593a0f7-d7f1-4a02-8352-b1903e5ff005
-        - coverity: https://cov-ren-02.ren.broadcom.net:8443/reports.htm#v29876/p10408
+          tags: [ "SAAS", "ONPREM", "PRODUCT_SPECIFIC1", "PRODUCT_SPECIFIC1" ]
+          tool-integrations:
+            - jenkins-build-job: https://cicd-jenkins.lvn.broadcom.net/job/cicd-global-catalog-component
+            - sonarqube: https://sonarqube.broadcom.net/dashboard?id=icds-global-catalog
+            - blackduck: https://broadcom-sw.app.blackduck.com/api/projects/e593a0f7-d7f1-4a02-8352-b1903e5ff005
+            - coverity: https://cov-ren-02.ren.broadcom.net:8443/reports.htm#v29876/p10408
       - dev:
-        tags: [ "SAAS", "ONPREM" ]
-        tool-integrations:
-        - jenkins-build-job: https://cicd-jenkins.lvn.broadcom.net/job/cicd-global-catalog-component
-        - sonarqube: https://sonarqube.broadcom.net/dashboard?id=icds-global-catalog
-        - blackduck: https://broadcom-sw.app.blackduck.com/api/projects/e593a0f7-d7f1-4a02-8352-b1903e5ff005
-        - coverity: https://cov-ren-02.ren.broadcom.net:8443/reports.htm#v29876/p10408
+          tags: [ "SAAS", "ONPREM" ]
+          tool-integrations:
+            - jenkins-build-job: https://cicd-jenkins.lvn.broadcom.net/job/cicd-global-catalog-component
+            - sonarqube: https://sonarqube.broadcom.net/dashboard?id=icds-global-catalog
+            - blackduck: https://broadcom-sw.app.blackduck.com/api/projects/e593a0f7-d7f1-4a02-8352-b1903e5ff005
+            - coverity: https://cov-ren-02.ren.broadcom.net:8443/reports.htm#v29876/p10408
 
   - name: User Directory Service
     team: UDS
@@ -67,12 +67,12 @@ product:
       repo: https://github.gwd.broadcom.net/SED/icds-user-directory
       branch:
       - master:
-        tags: [ "SAAS", "ONPREM" ]
-        tool-integrations:
-        - jenkins-build-job: https://cicd-jenkins.lvn.broadcom.net/job/cicd-user-directory
-        - sonarqube: https://sonarqube.broadcom.net/dashboard?id=icds-user-directory
-        - blackduck: https://broadcom-sw.app.blackduck.com/api/projects/f02db046-593e-4712-8f8d-94c439602851
-        - coverity: https://cov-ren-02.ren.broadcom.net:8443/reports.htm#v29876/p10378
+          tags: [ "SAAS", "ONPREM" ]
+          tool-integrations:
+            - jenkins-build-job: https://cicd-jenkins.lvn.broadcom.net/job/cicd-user-directory
+            - sonarqube: https://sonarqube.broadcom.net/dashboard?id=icds-user-directory
+            - blackduck: https://broadcom-sw.app.blackduck.com/api/projects/f02db046-593e-4712-8f8d-94c439602851
+            - coverity: https://cov-ren-02.ren.broadcom.net:8443/reports.htm#v29876/p10378
 
   - name: Authorization Management Service
     team: AMS
@@ -87,108 +87,7 @@ product:
         - blackduck: https://broadcom-sw.app.blackduck.com/api/projects/cd226443-7b44-420a-b003-28a9354ba056
         - coverity: https://cov-ren-02.ren.broadcom.net:8443/reports.htm#v29876/p10420
 
-  - name: Command and Control (CNC)
-    team: CNC
-    git:
-      repo: https://github.gwd.broadcom.net/SED/icds-cnc
-      branch:
-      - master:
-        tags: [ "SAAS", "ONPREM" ]
-        tool-integrations:
-        - jenkins-build-job: https://cicd-jenkins.lvn.broadcom.net/job/cnc-pipeline
-        - sonarqube: null
-        - blackduck: null
-        - coverity: null
-  - name: R3
-    team: R3
-    git:
-      repo: https://github.gwd.broadcom.net/SED/icds-r3
-      branch:
-      - master:
-        tags: [ "SAAS", "ONPREM" ]
-        tool-integrations:
-        - jenkins-build-job: https://cicd-jenkins.lvn.broadcom.net/job/cicd-icds-r3
-        - sonarqube: https://sonarqube.broadcom.net/dashboard?id=icds-r3
-        - blackduck: https://broadcom-sw.app.blackduck.com/api/projects/644819d0-c140-4f2a-9393-d115403caa7f
-        - coverity: https://cov-ren-02.ren.broadcom.net:8443/reports.htm#v29876/p10426
-
-  - name: Token (ID) Service
-    team: Identity Service
-    git:
-      repo: https://github.gwd.broadcom.net/SED/icds-identity
-      branch:
-      - master:
-        tags: [ "SAAS", "ONPREM" ]
-        tool-integrations:
-        - jenkins-build-job: https://cicd-jenkins.lvn.broadcom.net/job/cicd-icds-ldentity
-        - sonarqube: https://sonarqube.broadcom.net/dashboard?id=icds-identity
-        - blackduck: https://broadcom-sw.app.blackduck.com/api/projects/38c2607c-614e-4e73-ba7d-0cb634e986fd
-        - coverity: https://cov-ren-02.ren.broadcom.net:8443/reports.htm#v29876/p10413
-
-  - name: User Messaging
-    team: null
-    git:
-      repo: https://github.gwd.broadcom.net/SED/icds-user-messaging
-      branch:
-      - master:
-        tags: [ "SAAS", "ONPREM" ]
-        tool-integrations:
-        - jenkins-build-job: https://cicd-jenkins.lvn.broadcom.net/job/cicd_icds-user-messaging
-        - sonarqube: https://sonarqube.broadcom.net/dashboard?id=icds-user-messaging
-        - blackduck: https://broadcom-sw.app.blackduck.com/api/projects/6435ea78-71c9-4244-911b-a1ee38b79f30
-        - coverity: https://cov-ren-02.ren.broadcom.net:8443/reports.htm#v29876/p10425
-
-  - name: Event Service
-    team: null
-    git:
-      repo: https://github.gwd.broadcom.net/SED/icds-events
-      branch:
-      - master:
-        tags: [ "SAAS", "ONPREM" ]
-        tool-integrations:
-        - jenkins-build-job: https://cicd-jenkins.lvn.broadcom.net/job/cicd-icd-events
-        - sonarqube: https://sonarqube.broadcom.net/dashboard?id=icds-events
-        - blackduck: https://broadcom-sw.app.blackduck.com/api/projects/230074e2-172c-43d5-83c1-3a7eb40f350c
-        - coverity: https://cov-ren-02.ren.broadcom.net:8443/reports.htm#v29876/p10383
-
-  - name: User Facades
-    team: idp
-    git:
-      repo: https://github.gwd.broadcom.net/SED/icds-user-service
-      branch:
-      - master:
-        tags: [ "SAAS", "ONPREM" ]
-        tool-integrations:
-        - jenkins-build-job: https://cicd-jenkins.lvn.broadcom.net/job/cicd-idp-service
-        - sonarqube: https://sonarqube.broadcom.net/dashboard?id=icds-user-service
-        - blackduck: null
-        - coverity: null
-
-  - name: IDP Svc
-    team: idp
-    git:
-      repo: https://github.gwd.broadcom.net/SED/icds-idp-service
-      branch:
-      - master:
-        tags: [ "SAAS", "ONPREM" ]
-        tool-integrations:
-        - jenkins-build-job: https://cicd-jenkins.lvn.broadcom.net/job/cicd-idp-service
-        - sonarqube: https://sonarqube.broadcom.net/dashboard?id=icds-idp-service
-        - blackduck: https://broadcom-sw.app.blackduck.com/api/projects/6f29ffa8-7ccd-42d7-95b8-b5a62b8da6cb
-        - coverity: https://cov-ren-02.ren.broadcom.net:8443/reports.htm#v29876/p10380
-
-  - name: User Facades Service
-    team: idp
-    git:
-      repo: https://github.gwd.broadcom.net/SED/icds-user-service
-      branch:
-      - master:
-        tags: [ "SAAS", "ONPREM" ]
-        tool-integrations:
-        - jenkins-build-job: https://cicd-jenkins.lvn.broadcom.net/job/cicd-icd-user-service
-        - sonarqube: https://sonarqube.broadcom.net/dashboard?id=icds-user-service
-        - blackduck: null
-        - coverity: null
+  
 
   # Runtime cost bases
   gke:
