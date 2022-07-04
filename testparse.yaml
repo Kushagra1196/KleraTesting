@@ -1,24 +1,32 @@
 ---
-organization: EPP
-group: MLD
+organization: SBO
+group: SED
+
+# Product definition
 product:
-  name: TOC
-  tags:
-  - IAAS
-  - LMCD
+  # Product attributes that apply to the entire product are defined here, else overridden at the service/component level is unique
+  name: SPS
+  # Collection of tags useful for filtering queries for this product data
+  # Tags can identify dynamic product attributes such as SAAS/ONPREM or FEDRAMP/RESTRICTIVE ENV REQUIRED, etc.
+  tags: [ "SAAS", "FEDRAMP" ]
+
   tools:
     jira:
-    - project_url: https://sed-jira.neo.net/projects/CSCP
+    - project_url: https://sed-jira.broadcom.net/projects/CSCP
+
     cd:
       environment-urls:
-      - dev: https://github.test.neo.net/test/test-dev
-      - prod: https://github.test.neo.net/test/test-prod
+      - dev: https://github.gwd.broadcom.net/dockcpdev/sedicdsaas-dev
+      - prod: https://github.gwd.broadcom.net/dockcp/sedicdsaas-prod
+
     artifactory:
       repository-urls:
-      - helm: https://artifactory-test.neo.net/artifactory/sb-release-local
-      - snapshot: https://artifactory-test.neo.net/artifactory/sb-release-local
-      - docker: https://artifactory-test.neo.net/artifactory/sb-release-local
-      - release: https://artifactory-test.neo.net/artifactory/sb-release-local
+      - helm: https://artifactory-lvn.broadcom.net/artifactory/sbo-sps-helm-release-local
+      - snapshot: https://artifactory-lvn.broadcom.net/artifactory/sbo-sps-generic-release-local
+      - docker: https://artifactory-lvn.broadcom.net/artifactory/sbo-sps-docker-release-local
+      - release: https://artifactory-lvn.broadcom.net/artifactory/sbo-sps-maven-release-local
+
+    # Tool keys reserved for future use / need property definitions
     clarity:
     rally:
     gcr:
@@ -27,228 +35,218 @@ product:
     slack:
     gchat:
     laceworks:
+
   components:
   - name: Global Catalog Component
-    team:
+    team: null
+    # Git configuration for this component
     git:
-      repo: https://github.gwd.neo.net/test/etse-global-catalog
+      repo: https://github.gwd.broadcom.net/SED/icds-global-catalog
       branch:
       - master:
-        tags:
-        - SAAS
-        - ONPREM
-        - PRODUCT_SPECkjk
-        - PRODUCT_SPECIFrff
+        # Collection of tags useful for filtering queries for this component data
+        # Tags can identify dynamic product attributes such as SAAS/ONPREM or FEDRAMP/RESTRICTIVE ENV REQUIRED, etc.
+        # These tags will overwrite values from TAGS above in product
+        tags: [ "SAAS", "ONPREM", "PRODUCT_SPECIFIC1", "PRODUCT_SPECIFIC1" ]
         tool-integrations:
-        - jenkins-build-job: https://cicd-jenkins.test.neo.net/job/cicfefefd-component
-        - sonarqube: https://sonarqube.neo.net/dashboard?id=icdfefds-global-catalog
-        - blackduck: https://neo-sw.app.blackduck.com/api/projects/-d7f1-43e5ff005
-        - coverity: https://cov-ren-02.ren.neo.net:8443/reports.htm#/p10ete408
+        - jenkins-build-job: https://cicd-jenkins.lvn.broadcom.net/job/cicd-global-catalog-component
+        - sonarqube: https://sonarqube.broadcom.net/dashboard?id=icds-global-catalog
+        - blackduck: https://broadcom-sw.app.blackduck.com/api/projects/e593a0f7-d7f1-4a02-8352-b1903e5ff005
+        - coverity: https://cov-ren-02.ren.broadcom.net:8443/reports.htm#v29876/p10408
       - dev:
-        tags:
-        - IDFE
-        - EOMME
+        tags: [ "SAAS", "ONPREM" ]
         tool-integrations:
-        - jenkins-build-job: https://cicd-jenkins.kdd.neo.net/job/ci-global-catalog-component
-        - sonarqube: https://sonarqube.neo.net/dashboard?id=icd-global-catalog
-        - blackduck: https://neo-sw.app.blackduck.com/api/projects/e593a0f7-d7f1-4a02-
-        - coverity: https://cov-ren-02.ren.neo.net:8443/reports.htm#v2ffef76/y1234308
+        - jenkins-build-job: https://cicd-jenkins.lvn.broadcom.net/job/cicd-global-catalog-component
+        - sonarqube: https://sonarqube.broadcom.net/dashboard?id=icds-global-catalog
+        - blackduck: https://broadcom-sw.app.blackduck.com/api/projects/e593a0f7-d7f1-4a02-8352-b1903e5ff005
+        - coverity: https://cov-ren-02.ren.broadcom.net:8443/reports.htm#v29876/p10408
+
   - name: User Directory Service
     team: UDS
     git:
-      repo: https://github.gwd.neo.net/SED/icds-user-directory
+      repo: https://github.gwd.broadcom.net/SED/icds-user-directory
       branch:
       - master:
-        tags:
-        - SAAS
-        - ONPREM
+        tags: [ "SAAS", "ONPREM" ]
         tool-integrations:
-        - jenkins-build-job: https://cicd-jenkins.kdd.neo.net/job/cicd-user-directory
-        - sonarqube: https://sonarqube.neo.net/dashboard?id=ic-user-directory
-        - blackduck: https://neo-sw.app.blackduck.com/api/projects/f02db046-593e-4712-8f
-        - coverity: https://cov-ren-02.ren.neo.net:8443/reports.htm#v2ffef76/y123430810378
+        - jenkins-build-job: https://cicd-jenkins.lvn.broadcom.net/job/cicd-user-directory
+        - sonarqube: https://sonarqube.broadcom.net/dashboard?id=icds-user-directory
+        - blackduck: https://broadcom-sw.app.blackduck.com/api/projects/f02db046-593e-4712-8f8d-94c439602851
+        - coverity: https://cov-ren-02.ren.broadcom.net:8443/reports.htm#v29876/p10378
+
   - name: Authorization Management Service
     team: AMS
     git:
-      repo: https://github.gwd.neo.net/Sfef/ic-auth-management
+      repo: https://github.gwd.broadcom.net/SED/icds-auth-management
       branch:
       - master:
-        tags:
-        - SAAS
-        - ONPREM
+        tags: [ "SAAS", "ONPREM" ]
         tool-integrations:
-        - jenkins-build-job: https://cicd-jenkins.kdd.neo.net/job/ci-ams
-        - sonarqube: https://sonarqube-dev.neo.net/dashboard?id=auth-management
-        - blackduck: https://neo-sw.app.blackduck.com/api/projects/cd226443-7b44-43
-        - coverity: https://cov-ren-02.ren.neo.net:8443/reports.htm#v2ffef76/y123430810420
+        - jenkins-build-job: https://cicd-jenkins.lvn.broadcom.net/job/cicd-ams
+        - sonarqube: https://sonarqube-dev.broadcom.net/dashboard?id=icds-auth-management
+        - blackduck: https://broadcom-sw.app.blackduck.com/api/projects/cd226443-7b44-420a-b003-28a9354ba056
+        - coverity: https://cov-ren-02.ren.broadcom.net:8443/reports.htm#v29876/p10420
+
   - name: Command and Control (CNC)
     team: CNC
     git:
-      repo: https://github.gwd.neo.net/SED/icds-cnc
+      repo: https://github.gwd.broadcom.net/SED/icds-cnc
       branch:
       - master:
-        tags:
-        - SAAS
-        - ONPREM
+        tags: [ "SAAS", "ONPREM" ]
         tool-integrations:
-        - jenkins-build-job: https://cicd-jenkins.kdd.neo.net/job/cnc-pipeline
-        - sonarqube:
-        - blackduck:
-        - coverity:
+        - jenkins-build-job: https://cicd-jenkins.lvn.broadcom.net/job/cnc-pipeline
+        - sonarqube: null
+        - blackduck: null
+        - coverity: null
   - name: R3
     team: R3
     git:
-      repo: https://github.gwd.neo.net/SED/icds-r3
+      repo: https://github.gwd.broadcom.net/SED/icds-r3
       branch:
       - master:
-        tags:
-        - SAAS
-        - ONPREM
+        tags: [ "SAAS", "ONPREM" ]
         tool-integrations:
-        - jenkins-build-job: https://cicd-jenkins.kdd.neo.net/job/ci-icds-r3
-        - sonarqube: https://sonarqube.neo.net/dashboard?id=icds-r3
-        - blackduck: https://neo-sw.app.blackduck.com/api/projects/644819d0-c140-4f2
-        - coverity: https://cov-ren-02.ren.neo.net:8443/reports.htm#v2ffef76/y123430810426
+        - jenkins-build-job: https://cicd-jenkins.lvn.broadcom.net/job/cicd-icds-r3
+        - sonarqube: https://sonarqube.broadcom.net/dashboard?id=icds-r3
+        - blackduck: https://broadcom-sw.app.blackduck.com/api/projects/644819d0-c140-4f2a-9393-d115403caa7f
+        - coverity: https://cov-ren-02.ren.broadcom.net:8443/reports.htm#v29876/p10426
+
   - name: Token (ID) Service
     team: Identity Service
     git:
-      repo: https://github.gwd.neo.net/SED/icds-identity
+      repo: https://github.gwd.broadcom.net/SED/icds-identity
       branch:
       - master:
-        tags:
-        - SAAS
-        - ONPREM
+        tags: [ "SAAS", "ONPREM" ]
         tool-integrations:
-        - jenkins-build-job: https://cicd-jenkins.kdd.neo.net/job/ci-icds-ldentity
-        - sonarqube: https://sonarqube.neo.net/dashboard?id=icds-identity
-        - blackduck: https://neo-sw.app.blackduck.com/api/projects/38c2607c-614e-4e73-ba7d-0c23233
-        - coverity: https://cov-ren-02.ren.neo.net:8443/reports.htm#v2ffef76/y123430810413
+        - jenkins-build-job: https://cicd-jenkins.lvn.broadcom.net/job/cicd-icds-ldentity
+        - sonarqube: https://sonarqube.broadcom.net/dashboard?id=icds-identity
+        - blackduck: https://broadcom-sw.app.blackduck.com/api/projects/38c2607c-614e-4e73-ba7d-0cb634e986fd
+        - coverity: https://cov-ren-02.ren.broadcom.net:8443/reports.htm#v29876/p10413
+
   - name: User Messaging
-    team:
+    team: null
     git:
-      repo: https://github.gwd.neo.net/SED/icds-user-messaging
+      repo: https://github.gwd.broadcom.net/SED/icds-user-messaging
       branch:
       - master:
-        tags:
-        - SAAS
-        - ONPREM
+        tags: [ "SAAS", "ONPREM" ]
         tool-integrations:
-        - jenkins-build-job: https://cicd-jenkins.kdd.neo.net/job/ci_icds-user-messaging
-        - sonarqube: https://sonarqube.neo.net/dashboard?id=ic-user-messaging
-        - blackduck: https://neo-sw.app.blackduck.com/api/projects/6435ea78-71c9-4244-911b-a1ee38b79f30
-        - coverity: https://cov-ren-02.ren.neo.net:8443/reports.htm#v2ffef76/y123430810425
+        - jenkins-build-job: https://cicd-jenkins.lvn.broadcom.net/job/cicd_icds-user-messaging
+        - sonarqube: https://sonarqube.broadcom.net/dashboard?id=icds-user-messaging
+        - blackduck: https://broadcom-sw.app.blackduck.com/api/projects/6435ea78-71c9-4244-911b-a1ee38b79f30
+        - coverity: https://cov-ren-02.ren.broadcom.net:8443/reports.htm#v29876/p10425
+
   - name: Event Service
-    team:
+    team: null
     git:
-      repo: https://github.gwd.neo.net/SED/icds-events
+      repo: https://github.gwd.broadcom.net/SED/icds-events
       branch:
       - master:
-        tags:
-        - SAAS
-        - ONPREM
+        tags: [ "SAAS", "ONPREM" ]
         tool-integrations:
-        - jenkins-build-job: https://cicd-jenkins.kdd.neo.net/job/cicd-icd-events
-        - sonarqube: https://sonarqube.neo.net/dashboard?id=ic-events
-        - blackduck: https://neo-sw.app.blackduck.com/api/projects/230074e2-172c-4
-        - coverity: https://cov-ren-02.ren.neo.net:8443/reports.htm#v2ffef76/y123430810383
+        - jenkins-build-job: https://cicd-jenkins.lvn.broadcom.net/job/cicd-icd-events
+        - sonarqube: https://sonarqube.broadcom.net/dashboard?id=icds-events
+        - blackduck: https://broadcom-sw.app.blackduck.com/api/projects/230074e2-172c-43d5-83c1-3a7eb40f350c
+        - coverity: https://cov-ren-02.ren.broadcom.net:8443/reports.htm#v29876/p10383
+
   - name: User Facades
     team: idp
     git:
-      repo: https://github.gwd.neo.net/SED/icds-user-service
+      repo: https://github.gwd.broadcom.net/SED/icds-user-service
       branch:
       - master:
-        tags:
-        - SAAS
-        - ONPREM
+        tags: [ "SAAS", "ONPREM" ]
         tool-integrations:
-        - jenkins-build-job: https://cicd-jenkins.kdd.neo.net/job/cicd-idp-service
-        - sonarqube: https://sonarqube.neo.net/dashboard?id=icds-user-service
-        - blackduck:
-        - coverity:
+        - jenkins-build-job: https://cicd-jenkins.lvn.broadcom.net/job/cicd-idp-service
+        - sonarqube: https://sonarqube.broadcom.net/dashboard?id=icds-user-service
+        - blackduck: null
+        - coverity: null
+
   - name: IDP Svc
     team: idp
     git:
-      repo: https://github.gwd.neo.net/SED/icds-idp-service
+      repo: https://github.gwd.broadcom.net/SED/icds-idp-service
       branch:
       - master:
-        tags:
-        - SAAS
-        - ONPREM
+        tags: [ "SAAS", "ONPREM" ]
         tool-integrations:
-        - jenkins-build-job: https://cicd-jenkins.kdd.neo.net/job/cicd-idp-service
-        - sonarqube: https://sonarqube.neo.net/dashboard?id=ds-idp-service
-        - blackduck: https://neo-sw.app.blackduck.com/api/projects/6f29ffa8-7ccd-42d7-9
-        - coverity: https://cov-ren-02.ren.neo.net:8443/reports.htm#v2ffef76/y123430810380
+        - jenkins-build-job: https://cicd-jenkins.lvn.broadcom.net/job/cicd-idp-service
+        - sonarqube: https://sonarqube.broadcom.net/dashboard?id=icds-idp-service
+        - blackduck: https://broadcom-sw.app.blackduck.com/api/projects/6f29ffa8-7ccd-42d7-95b8-b5a62b8da6cb
+        - coverity: https://cov-ren-02.ren.broadcom.net:8443/reports.htm#v29876/p10380
+
   - name: User Facades Service
     team: idp
     git:
-      repo: https://github.gwd.neo.net/SED/icds-user-service
+      repo: https://github.gwd.broadcom.net/SED/icds-user-service
       branch:
       - master:
-        tags:
-        - SAAS
-        - ONPREM
+        tags: [ "SAAS", "ONPREM" ]
         tool-integrations:
-        - jenkins-build-job: https://cicd-jenkins.kdd.neo.net/job/ci-icd-user-service
-        - sonarqube: https://sonarqube.neo.net/dashboard?id=icds-user-service
-        - blackduck:
-        - coverity:
+        - jenkins-build-job: https://cicd-jenkins.lvn.broadcom.net/job/cicd-icd-user-service
+        - sonarqube: https://sonarqube.broadcom.net/dashboard?id=icds-user-service
+        - blackduck: null
+        - coverity: null
+
+  # Runtime cost bases
   gke:
     environments:
     - name: Environment name (Dev)
       namespaces:
       - sedicddata-js-dev
       - sedicddata-js-dev-2
-      - eojojee-dev-cp1
-      - eojojee-dev-cp1
-      - eojojee-dev-operator
-      - eojojee-dev-operator-gc
-      - eojojee-dev-operator-identity
-      - eojojee-dev-pmm-server
-      - eojojee-dev-psr
-      - eojojee-dev-sp1
-      - eojojee-dev-spoc
-      - eojojee-docs
-      - eojojee-elastic-operator
-      - eojojee-estonia-dev
-      - eojojee-icd-schema-browser
-      - eojojee-jenkins-server
-      - eojojee-jenkins-slaves
-      - eojojee-load-spoc-operator
-      - eojojee-spoc-dev-operator
-      - eojojee-uma
-      - eojojee-vault
+      - sedicdsaas-dev-cp1
+      - sedicdsaas-dev-cp1
+      - sedicdsaas-dev-operator
+      - sedicdsaas-dev-operator-gc
+      - sedicdsaas-dev-operator-identity
+      - sedicdsaas-dev-pmm-server
+      - sedicdsaas-dev-psr
+      - sedicdsaas-dev-sp1
+      - sedicdsaas-dev-spoc
+      - sedicdsaas-docs
+      - sedicdsaas-elastic-operator
+      - sedicdsaas-estonia-dev
+      - sedicdsaas-icd-schema-browser
+      - sedicdsaas-jenkins-server
+      - sedicdsaas-jenkins-slaves
+      - sedicdsaas-load-spoc-operator
+      - sedicdsaas-spoc-dev-operator
+      - sedicdsaas-uma
+      - sedicdsaas-vault
     - name: Verify
       namespaces:
-      - eojojee-verify-operator
-      - eojojee-verify-operator-ams
-      - eojojee-verify-operator-gc
-      - eojojee-verify-operator-identity
-      - eojojee-verify-operator-uds
-      - eojojee-verify-psr
-      - eojojee-verify1-cp1
-      - eojojee-verify1-sp1
-      - eojojee-verify1-spoc
-      - eojojee-verify2-cp1
-      - eojojee-verify2-sp1
-      - eojojee-spoc-verify-operator
-      - eojojee-spoctemp-verify-operator
+      - sedicdsaas-verify-operator
+      - sedicdsaas-verify-operator-ams
+      - sedicdsaas-verify-operator-gc
+      - sedicdsaas-verify-operator-identity
+      - sedicdsaas-verify-operator-uds
+      - sedicdsaas-verify-psr
+      - sedicdsaas-verify1-cp1
+      - sedicdsaas-verify1-sp1
+      - sedicdsaas-verify1-spoc
+      - sedicdsaas-verify2-cp1
+      - sedicdsaas-verify2-sp1
+      - sedicdsaas-spoc-verify-operator
+      - sedicdsaas-spoctemp-verify-operator
     - name: Prod
       namespaces:
-      - eojojee-aiops
-      - eojojee-dns
-      - eojojee-monitor
-      - eojojee-portal-prod-operator
-      - eojojee-prod-operator
-      - eojojee-prod-operator-ams
-      - eojojee-prod-operator-gc
-      - eojojee-prod-operator-identity
-      - eojojee-prod-operator-uds
-      - eojojee-prod-psr
-      - eojojee-prod1-cp1
-      - eojojee-prod1-sp1
-      - eojojee-prod1-spoc
-      - eojojee-prod2-cp1
-      - eojojee-prod2-sp1
-      - eojojee-psr
-      - eojojee-spoc-prod-operator
+      - sedicdsaas-aiops
+      - sedicdsaas-dns
+      - sedicdsaas-monitor
+      - sedicdsaas-portal-prod-operator
+      - sedicdsaas-prod-operator
+      - sedicdsaas-prod-operator-ams
+      - sedicdsaas-prod-operator-gc
+      - sedicdsaas-prod-operator-identity
+      - sedicdsaas-prod-operator-uds
+      - sedicdsaas-prod-psr
+      - sedicdsaas-prod1-cp1
+      - sedicdsaas-prod1-sp1
+      - sedicdsaas-prod1-spoc
+      - sedicdsaas-prod2-cp1
+      - sedicdsaas-prod2-sp1
+      - sedicdsaas-psr
+      - sedicdsaas-spoc-prod-operator
