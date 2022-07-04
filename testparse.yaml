@@ -80,12 +80,12 @@ product:
       repo: https://github.gwd.broadcom.net/SED/icds-auth-management
       branch:
       - master:
-        tags: [ "SAAS", "ONPREM" ]
-        tool-integrations:
-        - jenkins-build-job: https://cicd-jenkins.lvn.broadcom.net/job/cicd-ams
-        - sonarqube: https://sonarqube-dev.broadcom.net/dashboard?id=icds-auth-management
-        - blackduck: https://broadcom-sw.app.blackduck.com/api/projects/cd226443-7b44-420a-b003-28a9354ba056
-        - coverity: https://cov-ren-02.ren.broadcom.net:8443/reports.htm#v29876/p10420
+          tags: [ "SAAS", "ONPREM" ]
+          tool-integrations:
+            - jenkins-build-job: https://cicd-jenkins.lvn.broadcom.net/job/cicd-ams
+            - sonarqube: https://sonarqube-dev.broadcom.net/dashboard?id=icds-auth-management
+            - blackduck: https://broadcom-sw.app.blackduck.com/api/projects/cd226443-7b44-420a-b003-28a9354ba056
+            - coverity: https://cov-ren-02.ren.broadcom.net:8443/reports.htm#v29876/p10420
 
   
 
