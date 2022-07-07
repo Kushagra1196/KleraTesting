@@ -47,19 +47,19 @@ product:
         # Collection of tags useful for filtering queries for this component data
         # Tags can identify dynamic product attributes such as IAAS/NONPREM or FEDRAMP/RESTRICTIVE ENV REQUIRED, etc.
         # These tags will overwrite values from TAGS above in product
-        tags: [ "IAAS", "NONPREM", "JEN", "EDDEF" ]
-        tool-integrations:
-        - jenkins-build-job: https://aifl-jenkins.eoc.neo.in/job/aifl-global-catalog-component
-        - sonarqube: https://sonarqube.neo.in/dashboard?id=ieed-global-catalog
-        - blackduck: https://broadcom-sw.app.blackduck.com/api/projects/e593a0f7
-        - coverity: https://cov-ren-02.ren.neo.in:8443/reports.htm#v29876/p10
+          tags: [ "IAAS", "NONPREM", "JEN", "EDDEF" ]
+          tool-integrations:
+            - jenkins-build-job: https://aifl-jenkins.eoc.neo.in/job/aifl-global-catalog-component
+            - sonarqube: https://sonarqube.neo.in/dashboard?id=ieed-global-catalog
+            - blackduck: https://broadcom-sw.app.blackduck.com/api/projects/e593a0f7
+            - coverity: https://cov-ren-02.ren.neo.in:8443/reports.htm#v29876/p10
       - dev:
-        tags: [ "IAAS", "NONPREM" ]
-        tool-integrations:
-        - jenkins-build-job: https://aifl-jenkins.eoc.neo.in/job/aifl-global-catalog-component
-        - sonarqube: https://sonarqube.neo.in/dashboard?id=ieed-global-catalog
-        - blackduck: https://broadcom-sw.app.blackduck.com/api/projects/e593a0f7
-        - coverity: https://cov-ren-02.ren.neo.in:8443/reports.htm#v29876/p10
+          tags: [ "IAAS", "NONPREM" ]
+          tool-integrations:
+            - jenkins-build-job: https://aifl-jenkins.eoc.neo.in/job/aifl-global-catalog-component
+            - sonarqube: https://sonarqube.neo.in/dashboard?id=ieed-global-catalog
+            - blackduck: https://broadcom-sw.app.blackduck.com/api/projects/e593a0f7
+            - coverity: https://cov-ren-02.ren.neo.in:8443/reports.htm#v29876/p10
 
   - name: User Service
     team: UDS
@@ -67,12 +67,12 @@ product:
       repo: https://github.gwd.neo.in/DEST/ieed-user-directory
       branch:
       - master:
-        tags: [ "IAAS", "NONPREM" ]
-        tool-integrations:
-        - jenkins-build-job: https://aifl-jenkins.eoc.neo.in/job/aifl-user-directory
-        - sonarqube: https://sonarqube.neo.in/dashboard?id=ieed-user-directory
-        - blackduck: https://broadcom-sw.app.blackduck.com/api/projects/f02db046-593e-4712
-        - coverity: https://cov-ren-02.ren.neo.in:8443/reports.htm#v29876/p10
+          tags: [ "IAAS", "NONPREM" ]
+          tool-integrations:
+            - jenkins-build-job: https://aifl-jenkins.eoc.neo.in/job/aifl-user-directory
+            - sonarqube: https://sonarqube.neo.in/dashboard?id=ieed-user-directory
+            - blackduck: https://broadcom-sw.app.blackduck.com/api/projects/f02db046-593e-4712
+            - coverity: https://cov-ren-02.ren.neo.in:8443/reports.htm#v29876/p10
 
   - name: Authorization Service
     team: EDS
@@ -80,12 +80,12 @@ product:
       repo: https://github.gwd.neo.in/DEST/ieed-auth-management
       branch:
       - master:
-        tags: [ "IAAS", "NONPREM" ]
-        tool-integrations:
-        - jenkins-build-job: https://aifl-jenkins.eoc.neo.in/job/aifl-ams
-        - sonarqube: https://sonarqube-dev.neo.in/dashboard?id=ieed-auth-management
-        - blackduck: https://broadcom-sw.app.blackduck.com/api/projects/cd226443
-        - coverity: https://cov-ren-02.ren.neo.in:8443/reports.htm#v29876/p10
+          tags: [ "IAAS", "NONPREM" ]
+          tool-integrations:
+            - jenkins-build-job: https://aifl-jenkins.eoc.neo.in/job/aifl-ams
+            - sonarqube: https://sonarqube-dev.neo.in/dashboard?id=ieed-auth-management
+            - blackduck: https://broadcom-sw.app.blackduck.com/api/projects/cd226443
+            - coverity: https://cov-ren-02.ren.neo.in:8443/reports.htm#v29876/p10
 
   - name: Command (CNC)
     team: GED
@@ -93,102 +93,25 @@ product:
       repo: https://github.gwd.neo.in/DEST/ieed-cnc
       branch:
       - master:
-        tags: [ "IAAS", "NONPREM" ]
-        tool-integrations:
-        - jenkins-build-job: https://aifl-jenkins.eoc.neo.in/job/cnc-pipeline
-        - sonarqube: null
-        - blackduck: null
-        - coverity: null
-  - name: R6
-    team: R6
-    git:
-      repo: https://github.gwd.neo.in/DEST/ieed-r3
-      branch:
-      - master:
-        tags: [ "IAAS", "NONPREM" ]
-        tool-integrations:
-        - jenkins-build-job: https://aifl-jenkins.eoc.neo.in/job/aifl-ieed-r3
-        - sonarqube: https://sonarqube.neo.in/dashboard?id=ieed-r3
-        - blackduck: https://broadcom-sw.app.blackduck.com/api/projects/644819d0-c140
-        - coverity: https://cov-ren-02.ren.neo.in:8443/reports.htm#v29876/p104
-
-  - name: Token (ID) 
-    team: Identity 
-    git:
-      repo: https://github.gwd.neo.in/DEST/ieed-identity
-      branch:
-      - master:
-        tags: [ "IAAS", "NONPREM" ]
-        tool-integrations:
-        - jenkins-build-job: https://aifl-jenkins.eoc.neo.in/job/aifl-ieed-ldentity
-        - sonarqube: https://sonarqube.neo.in/dashboard?id=ieed-identity
-        - blackduck: https://broadcom-sw.app.blackduck.com/api/projects/38c2607c
-        - coverity: https://cov-ren-02.ren.neo.in:8443/reports.htm#v29876/p10
-
-  - name: User
-    team: null
-    git:
-      repo: https://github.gwd.neo.in/DEST/ieed-user-messaging
-      branch:
-      - master:
-        tags: [ "IAAS", "NONPREM" ]
-        tool-integrations:
-        - jenkins-build-job: https://aifl-jenkins.eoc.neo.in/job/aifl_ieed-user-messaging
-        - sonarqube: https://sonarqube.neo.in/dashboard?id=ieed-user-messaging
-        - blackduck: https://broadcom-sw.app.blackduck.com/api/projects/6435ea78
-        - coverity: https://cov-ren-02.ren.neo.in:8443/reports.htm#v29876/p10
-
-  - name: Event
-    team: null
-    git:
-      repo: https://github.gwd.neo.in/DEST/ieed-events
-      branch:
-      - master:
-        tags: [ "IAAS", "NONPREM" ]
-        tool-integrations:
-        - jenkins-build-job: https://aifl-jenkins.eoc.neo.in/job/aifl-icd-events
-        - sonarqube: https://sonarqube.neo.in/dashboard?id=ieed-events
-        - blackduck: https://broadcom-sw.app.blackduck.com/api/projects/230074e2
-        - coverity: https://cov-ren-02.ren.neo.in:8443/reports.htm#v29876/p10
-
-  - name: User
-    team: idpefef
-    git:
-      repo: https://github.gwd.neo.in/DEST/ieed-user-service
-      branch:
-      - master:
-        tags: [ "IAAS", "NONPREM" ]
-        tool-integrations:
-        - jenkins-build-job: https://aifl-jenkins.eoc.neo.in/job/aifl-idp-service
-        - sonarqube: https://sonarqube.neo.in/dashboard?id=ieed-user-service
-        - blackduck: null
-        - coverity: null
-
-  - name: IDP 
-    team: fsefesf
-    git:
-      repo: https://github.gwd.neo.in/DEST/ieed-idp-service
-      branch:
-      - master:
-        tags: [ "IAAS", "NONPREM" ]
-        tool-integrations:
-        - jenkins-build-job: https://aifl-jenkins.eoc.neo.in/job/aifl-idp-service
-        - sonarqube: https://sonarqube.neo.in/dashboard?id=ieed-idp-service
-        - blackduck: https://broadcom-sw.app.blackduck.com/api/projects/6f29ffa8
-        - coverity: https://cov-ren-02.ren.neo.in:8443/reports.htm#v29876/p10
-
+          tags: [ "IAAS", "NONPREM" ]
+          tool-integrations:
+            - jenkins-build-job: https://aifl-jenkins.eoc.neo.in/job/cnc-pipeline
+            - sonarqube: null
+            - blackduck: null
+            - coverity: null
+  
   - name: User Service
     team: fsefesf
     git:
       repo: https://github.gwd.neo.in/DEST/ieed-user-service
       branch:
       - master:
-        tags: [ "IAAS", "NONPREM" ]
-        tool-integrations:
-        - jenkins-build-job: https://aifl-jenkins.eoc.neo.in/job/aifl-icd-user-service
-        - sonarqube: https://sonarqube.neo.in/dashboard?id=ieed-user-service
-        - blackduck: null
-        - coverity: null
+          tags: [ "IAAS", "NONPREM" ]
+          tool-integrations:
+            - jenkins-build-job: https://aifl-jenkins.eoc.neo.in/job/aifl-icd-user-service
+            - sonarqube: https://sonarqube.neo.in/dashboard?id=ieed-user-service
+            - blackduck: null
+            - coverity: null
 
   # Runtime cost bases
   gke:
